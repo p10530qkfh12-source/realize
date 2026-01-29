@@ -1,4 +1,16 @@
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.body.setAttribute('data-theme', savedTheme);
 
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
+// Lotto number generator
 document.getElementById('generate-btn').addEventListener('click', () => {
     const numbersContainer = document.querySelector('.numbers-container');
     numbersContainer.innerHTML = '';
